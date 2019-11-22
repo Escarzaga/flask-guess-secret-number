@@ -1,10 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form method="post" action="/result">
-    <input type="text" name="guess" placeholder="Enter your guess number">
-    <br>
+{% if user and user.secret_number %}
+        <form method="post" action="/result">
+            <input type="text" name="guess" placeholder="Enter your guess number">
+            <br>
 
-    <button type="submit">Submit guess</button>
-</form>
+            <button type="submit">Submit guess</button>
+        </form>
+{% else %}
+         <form method="post" action="/login">
+             <input type="text" name="user-name" placeholder="Enter your name">
+            <br>
+            <input type="email" name="user-email" placeholder="Enter your email address">
+            <br>
+
+             <button type="submit">Submit guess</button>
+         </form>
+{% endif %}
 {% endblock content %}
