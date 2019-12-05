@@ -8,6 +8,7 @@ class User(db.Model):
     name = db.Column(db.String, unique=True) #user name must be unique
     email = db.Column(db.String, unique=True) #email must be unique
     secret_number = db.Column(db.Integer, unique=False) #must not be unique across user objects
-
-
+    password = db.Column(db.String)
+    session_token = db.Column(db.String)
+    deleted = db.Column(db.Boolean, default=False)
 
